@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                cleanWs()
                 git branch: 'develop', url: 'https://github.com/krickwix/meta-gbeos.git'
                 withEnv(['all_proxy=http://proxy.esl.cisco.com:80','GIT_TRACE_PACKET=true']) {
                     sh("all_proxy=http://proxy.esl.cisco.com:80 git submodule update --init --recursive --jobs 32")
@@ -32,12 +31,7 @@ pipeline {
     post {
         // Clean after build
         always {
-            cleanWs(cleanWhenNotBuilt: false,
-                    deleteDirs: true,
-                    disableDeferredWipeout: true,
-                    notFailBuild: true,
-                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                               [pattern: '.propsfile', type: 'EXCLUDE']])
+            cleanWs()
         }
     }
 }
