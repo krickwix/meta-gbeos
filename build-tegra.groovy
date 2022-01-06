@@ -16,7 +16,7 @@ pipeline {
                     MACHINE=jetson-nano-devkit-emmc bitbake demo-image-full && \
                     MACHINE=jetson-nano-devkit bitbake demo-image-full && \
                     MACHINE=jetson-xavier-nx-devkit bitbake demo-image-full && \
-                    MACHINE=jetson-nano-xavier-nx-devkit-tx2-nx bitbake demo-image-full")
+                    MACHINE=jetson-xavier-nx-devkit-tx2-nx bitbake demo-image-full")
                 }
             }
         }
