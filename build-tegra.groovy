@@ -12,7 +12,10 @@ pipeline {
         stage("build") {
             steps {
                 sh("cd tegra-distro && . setup-env --machine jetson-nano-devkit-emmc --distro tegrademo && \
-                for i in 'jetson-nano-devkit-emmc jetson-nano-devkit jetson-xavier-nx-devkit jetson-nano-xavier-nx-devkit-tx2-nx'; do MACHINE=$i bitbake demo-image-full;done")
+                MACHINE=jetson-nano-devkit-emmc bitbake demo-image-full \
+                MACHINE=jetson-nano-devkit bitbake demo-image-full \
+                MACHINE=jetson-xavier-nx-devkit bitbake demo-image-full \
+                MACHINE=jetson-nano-xavier-nx-devkit-tx2-nx bitbake demo-image-full
             }
         }
         stage("artefacts") {
