@@ -4,18 +4,20 @@ pipeline {
         stage('scm') {
             steps {
                 git branch: 'develop', url: 'https://github.com/krickwix/meta-gbeos.git'
-                withEnv(['all_proxy=http://proxy.esl.cisco.com:80','GIT_TRACE_PACKET=true']) {
+                withEnv(['all_proxy=http://proxy.esl.cisco.com:80']) {
                     sh("all_proxy=http://proxy.esl.cisco.com:80 git submodule update --init --recursive --jobs 32")
                 }
             }
         }
         stage("build") {
             steps {
-                sh("cd tegra-distro && . setup-env --machine jetson-nano-devkit-emmc --distro tegrademo && \
-                MACHINE=jetson-nano-devkit-emmc bitbake demo-image-full && \
-                MACHINE=jetson-nano-devkit bitbake demo-image-full && \
-                MACHINE=jetson-xavier-nx-devkit bitbake demo-image-full && \
-                MACHINE=jetson-nano-xavier-nx-devkit-tx2-nx bitbake demo-image-full")
+                withEnv(['all_proxy=http://proxy.esl.cisco.com:80','LANG="C"']) {
+                    sh("cd tegra-distro && . setup-env --machine jetson-nano-devkit-emmc --distro tegrademo && \
+                    MACHINE=jetson-nano-devkit-emmc bitbake demo-image-full && \
+                    MACHINE=jetson-nano-devkit bitbake demo-image-full && \
+                    MACHINE=jetson-xavier-nx-devkit bitbake demo-image-full && \
+                    MACHINE=jetson-nano-xavier-nx-devkit-tx2-nx bitbake demo-image-full")
+                }
             }
         }
         stage("artefacts") {
