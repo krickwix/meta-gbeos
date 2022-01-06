@@ -12,7 +12,7 @@ pipeline {
         stage("build") {
             steps {
                 withEnv(['LANG=C']) {
-                    sh("cd rpi-distro && . setupenv && bitbake gbeos-dev")
+                    sh("cd rpi-distro && . setupenv && bitbake gbeos-dev && MACHINE=raspberrypi3-64 bitbake gbeos-dev")
                 }
             }
         }
