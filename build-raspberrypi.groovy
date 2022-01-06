@@ -14,7 +14,7 @@ pipeline {
                 withEnv(['LANG=C']) {
                     sh("cd rpi-distro && . setupenv && \
                     MACHINE=raspberrypi4-64 bitbake gbeos-dev && \
-                    MACHINE=raspberrypi3-74 bitbake gbeos-dev")
+                    MACHINE=raspberrypi3-64 bitbake gbeos-dev")
                 }
             }
         }
