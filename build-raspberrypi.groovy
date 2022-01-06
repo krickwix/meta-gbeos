@@ -18,6 +18,14 @@ pipeline {
                 }
             }
         }
+        stage('image') {
+            steps {
+                sh("cd rpi-distro/tmp/deploy/images/raspberrypi4-64 && \
+                bmaptool copy --bmap gbeos-dev-raspberrypi4-64.wic.bmap gbeos-dev-raspberrypi4-64.wic.bz2 gbeos-dev-raspberrypi4-64.img")
+                sh("cd rpi-distro/tmp/deploy/images/raspberrypi4-64 && \
+                bmaptool copy --bmap gbeos-dev-raspberrypi3-64.wic.bmap gbeos-dev-raspberrypi3-64.wic.bz2 gbeos-dev-raspberrypi3-64.img")
+            }
+        }
         stage("artefacts") {
             steps {
                 archiveArtifacts artifacts: 'rpi-distro/build/tmp/deploy/images/**/*.wic.bz2',
@@ -25,6 +33,10 @@ pipeline {
                    fingerprint: true,
                    onlyIfSuccessful: true
                 archiveArtifacts artifacts: 'rpi-distro/build/tmp/deploy/images/**/*.bmap',
+                   allowEmptyArchive: true,
+                   fingerprint: true,
+                   onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'rpi-distro/build/tmp/deploy/images/**/*.img',
                    allowEmptyArchive: true,
                    fingerprint: true,
                    onlyIfSuccessful: true
