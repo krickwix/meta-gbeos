@@ -10,7 +10,7 @@ BBLAYERS ?= " \
   ${TOPDIR}/../meta-raspberrypi \
   ${TOPDIR}/../meta-virtualization \
   ${TOPDIR}/../meta-security \
-  ${TOPDIR}/../../meta-greatbear \
+  ${TOPDIR}/../meta-greatbear \
   ${TOPDIR}/../meta-gbeos \
   ${TOPDIR}/../meta-openembedded/meta-networking \
   ${TOPDIR}/../meta-openembedded/meta-filesystems \
