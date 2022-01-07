@@ -20,10 +20,14 @@ pipeline {
         }
         stage('image') {
             steps {
-                sh("cd rpi-distro/tmp/deploy/images/raspberrypi4-64 && \
-                bmaptool copy --bmap gbeos-dev-raspberrypi4-64.wic.bmap gbeos-dev-raspberrypi4-64.wic.bz2 gbeos-dev-raspberrypi4-64.img")
-                sh("cd rpi-distro/tmp/deploy/images/raspberrypi4-64 && \
-                bmaptool copy --bmap gbeos-dev-raspberrypi3-64.wic.bmap gbeos-dev-raspberrypi3-64.wic.bz2 gbeos-dev-raspberrypi3-64.img")
+                sh(
+                "bmaptool copy --bmap tmp/deploy/raspberrypi4-64/gbeos-dev-raspberrypi4-64.wic.bmap \
+                    tmp/deploy/raspberrypi4-64/gbeos-dev-raspberrypi4-64.wic.bz2 \
+                    tmp/deploy/raspberrypi4-64/gbeos-dev-raspberrypi4-64.img && \
+                bmaptool copy --bmap tmp/deploy/raspberrypi3-64/gbeos-dev-raspberrypi3-64.wic.bmap \
+                    tmp/deploy/raspberrypi3-64/gbeos-dev-raspberrypi3-64.wic.bz2 \
+                    tmp/deploy/raspberrypi3-64/gbeos-dev-raspberrypi3-64.img"
+                )
             }
         }
         stage("artefacts") {
