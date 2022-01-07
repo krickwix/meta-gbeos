@@ -16,3 +16,7 @@
 [submodule "tegra-distro"]
 	path = tegra-distro
 	url = https://github.com/krickwix/tegra-demo-distro.git
+[submodule "rpi-distro/meta-greatbear"]
+	path = rpi-distro/meta-greatbear
+	url = https://github.com/krickwix/meta-greatbear.git
+	branch = develop
