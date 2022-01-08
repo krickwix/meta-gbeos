@@ -1,2 +1,0 @@
-export TEMPLATECONF=$PWD/meta-gbeos/conf
-. poky/oe-init-build-env $*

@@ -1,18 +1,6 @@
-[submodule "poky"]
-	path = rpi-distro/poky
-	url = https://git.yoctoproject.org/poky
-[submodule "meta-openembedded"]
-	path = rpi-distro/meta-openembedded
-	url = https://git.openembedded.org/meta-openembedded
-[submodule "meta-raspberrypi"]
-	path = rpi-distro/meta-raspberrypi
-	url = https://git.yoctoproject.org/meta-raspberrypi
-[submodule "meta-security"]
-	path = rpi-distro/meta-security
-	url = https://git.yoctoproject.org/meta-security
-[submodule "meta-virtualization"]
-	path = rpi-distro/meta-virtualization
-	url = https://git.yoctoproject.org/meta-virtualization
 [submodule "tegra-distro"]
 	path = tegra-distro
 	url = https://github.com/krickwix/tegra-demo-distro.git
+[submodule "rpi64-distro"]
+	path = rpi-distro
+	url = https://github.com/krickwix/rpi-distro.git
