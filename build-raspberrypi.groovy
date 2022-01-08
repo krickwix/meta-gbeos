@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                git branch: 'refactor', url: 'https://github.com/krickwix/meta-gbeos.git'
+                git branch: 'develop', url: 'https://github.com/krickwix/meta-gbeos.git'
                 withEnv(['LANG=C']) {
                     sh("git submodule update --init --recursive --jobs 32 rpi-distro")
                 }
