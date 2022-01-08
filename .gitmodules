@@ -2,5 +2,5 @@
 	path = tegra-distro
 	url = https://github.com/krickwix/tegra-demo-distro.git
 [submodule "rpi64-distro"]
-	path = rpi64-distro
+	path = rpi-distro
 	url = https://github.com/krickwix/rpi-distro.git
